@@ -1,0 +1,47 @@
+@import 'src/styles/main.scss';
+
+.btn {
+  display: block;
+  width: 100%;
+  font-weight: $font-weight-heavy;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  background-color: $primary-1;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: transform 0.3s ease;
+
+  //SIZES
+  &--small {
+    font-size: $text-sm;
+  }
+
+  &--medium {
+    padding: 1rem;
+    font-size: $text-base;
+  }
+
+  &--large {
+    padding: 1rem;
+    font-size: $text-lg;
+  }
+
+  //STYLES
+  &--primary {
+    border-radius: 2.5rem;
+  }
+
+  &--secondary {
+    border-radius: 0.5rem;
+
+    &-active {
+      border-radius: 0.5rem;
+      background-color: $primary-2;
+    }
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
