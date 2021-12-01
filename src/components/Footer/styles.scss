@@ -1,0 +1,81 @@
+@import 'src/styles/main.scss';
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  right: 0;
+  top: 0;
+  gap: 2rem;
+  background-color: $very-dark-violet;
+  color: white;
+  padding: 4rem 5.5rem;
+  justify-content: space-between;
+
+  @include respond(dekstop) {
+    padding: 4rem 9.5rem;
+  }
+
+  @include respond(tablet) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__brand {
+    display: flex;
+    justify-content: center;
+
+    &-logo img {
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 4.5rem;
+
+    @include respond(mobile) {
+      flex-direction: column;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    &--item {
+      font-weight: $font-weight-heavy;
+
+      &-list {
+        text-decoration: none;
+        color: $gray;
+        font-weight: $font-weight-light;
+
+        &:hover {
+          color: $primary-1;
+        }
+      }
+    }
+
+    &--item ul {
+      list-style-type: none;
+      margin-top: 0.75rem;
+
+      & li {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    &--item img:hover {
+      filter: invert(0.25) sepia(1) saturate(6) hue-rotate(140deg)
+        brightness(0.9);
+    }
+  }
+}
