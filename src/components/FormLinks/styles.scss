@@ -8,48 +8,75 @@
     top: -80px;
   }
 
-  &__input {
-    display: flex;
-    justify-content: space-between;
+  &__box {
     background-color: $primary-2;
-    border-radius: 0.75rem;
     background-image: url('/assets/images/bg-boost-desktop.svg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2rem 3rem;
     margin: 1rem 0;
-    gap: 2rem;
+    border-radius: 0.75rem;
+    align-items: center;
 
-    @include respond(tablet) {
-      padding: 1.5rem 2rem;
-      flex-direction: column;
-      text-align: center;
-      gap: 1.5rem;
-    }
-
-    &-field {
-      width: 80%;
-      border-radius: 0.5rem;
-      border: none;
-      padding: 0 1rem;
-      font-family: 'Poppins', sans-serif;
+    &-input {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
 
       @include respond(tablet) {
-        padding: 1rem;
-        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
       }
 
-      &:focus {
-        box-shadow: inset 0 0 0 2px $primary-1, 0 0 3px 1px $primary-1;
-        outline: none;
+      &--field {
+        width: 80%;
+        border-radius: 0.5rem;
+        border: none;
+        padding: 0 1rem;
+        font-family: 'Poppins', sans-serif;
+
+        @include respond(tablet) {
+          padding: 1rem;
+          width: 100%;
+        }
+
+        &:focus {
+          box-shadow: inset 0 0 0 2px $primary-1, 0 0 3px 1px $primary-1;
+          outline: none;
+        }
+
+        &-alert {
+          width: 80%;
+          border-radius: 0.5rem;
+          border: none;
+          padding: 0 1rem;
+          font-family: 'Poppins', sans-serif;
+  
+          @include respond(tablet) {
+            padding: 1rem;
+            width: 100%;
+          }
+
+          box-shadow: inset 0 0 0 2px $secondary-red, 0 0 3px 1px $secondary-red;
+          outline: none;
+        }
       }
-    }
 
-    & button {
-      width: 20%;
+      & button {
+        width: 20%;
 
-      @include respond(tablet) {
-        width: 100%;
+        @include respond(tablet) {
+          width: 100%;
+        }
+      }
+
+      &--alert {
+        margin: 0.5rem 0;
+        font-style: italic;
+        font-weight: $font-weight-light;
+        color: $secondary-red;
+        font-size: $text-sm;
       }
     }
   }

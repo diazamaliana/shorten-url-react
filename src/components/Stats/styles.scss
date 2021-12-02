@@ -78,7 +78,7 @@
     transform: rotate(90deg);
   }
 
-  @include respond(mobile) {
+  @include respond(mobile-lg) {
     width: 100%;
   }
 }

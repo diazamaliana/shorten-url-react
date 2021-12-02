@@ -106,6 +106,10 @@
       @include respond(dekstop) {
         display: none;
       }
+
+      @include respond(tablet-lg) {
+        display: none;
+      }
     }
   }
 }
