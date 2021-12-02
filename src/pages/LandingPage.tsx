@@ -4,11 +4,11 @@ import Stats from 'components/Stats';
 
 function LandingPage() {
   return (
-    <div className="landing-page">
+    <main className="landing-page">
       <Hero></Hero>
       <Stats></Stats>
       <BootsCTA></BootsCTA>
-    </div>
+    </main>
   );
 }
 
