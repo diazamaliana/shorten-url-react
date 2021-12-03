@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useLocalStorage from './useLocalStorage';
-import API_BASE from './API';
+import { API_BASE } from './API';
 
 const useShorten = () => {
   const [appError, setAppError] = useState('');
