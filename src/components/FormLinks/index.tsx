@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import Button from 'components/Button';
 import './styles.scss';
 
-const FormsLinks = ({ onUrlSubmit, ...rest }: any) => {
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+const FormsLinks = ({ onUrlSubmit, links, children, ...props }: any) => {
   const [url, setUrl] = useState('');
   const [formError, setFormError] = useState('');
   const [isValid, setIsValid] = React.useState<boolean>(true);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!url || !url.trim()) {
       setFormError('Please add a link');
       setIsValid(false);
@@ -18,16 +19,46 @@ const FormsLinks = ({ onUrlSubmit, ...rest }: any) => {
       setIsValid(true);
       onUrlSubmit(url);
     }
-
     setUrl('');
   };
+
+  const LinkList = links.map((url: any) => {
+    const [isCopied, setIsCopied] = useState(false);
+
+    const onCopyText = () => {
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1000);
+    };
+
+    return (
+      <div className="form__link" key={url.result.code}>
+        <a href={url.result.original_link} className="form__link-original">
+          {url.result.original_link}
+        </a>
+        <a className="form__link-shorten" href={url.result.full_short_link}>
+          {url.result.full_short_link}
+        </a>
+        <CopyToClipboard text={url.result.full_short_link} onCopy={onCopyText}>
+          <Button
+            buttonStyle={isCopied ? 'btn--secondary-active' : 'btn--secondary'}
+            buttonSize="btn--small"
+            type="submit"
+          >
+            {isCopied ? 'Copied!' : 'Copy'}
+          </Button>
+        </CopyToClipboard>
+      </div>
+    );
+  });
 
   return (
     <div className="form">
       <div className="form__box">
         <form className="form__box-input" onSubmit={handleSubmit}>
           <input
-            {...rest}
+            {...props}
             type="text"
             className={
               isValid
@@ -50,19 +81,8 @@ const FormsLinks = ({ onUrlSubmit, ...rest }: any) => {
           <p className="form__box-input--alert">{formError}</p>
         ) : null}
       </div>
-      <div className="form__link">
-        <p className="form__link-original">Hello</p>
-        <a className="form__link-shorten" href="">
-          Link
-        </a>
-        <Button
-          buttonStyle="btn--secondary-active"
-          buttonSize="btn--small"
-          type="button"
-        >
-          {'Copy'}
-        </Button>
-      </div>
+      {LinkList}
+      {children}
     </div>
   );
 };

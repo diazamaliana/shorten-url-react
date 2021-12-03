@@ -18,6 +18,10 @@
     border-radius: 0.75rem;
     align-items: center;
 
+    @include respond(mobile-lg) {
+      padding: 1rem 1.5rem;
+    }
+
     &-input {
       display: flex;
       justify-content: space-between;
@@ -52,7 +56,7 @@
           border: none;
           padding: 0 1rem;
           font-family: 'Poppins', sans-serif;
-  
+
           @include respond(tablet) {
             padding: 1rem;
             width: 100%;
@@ -92,7 +96,7 @@
     align-items: center;
     text-align: left;
 
-    @include respond(mobile) {
+    @include respond(mobile-lg) {
       flex-direction: column;
       text-align: center;
       padding: 1.3rem 0;
@@ -102,28 +106,48 @@
     &-original {
       font-weight: $font-weight-heavy;
       width: 60%;
+      color: $primary-2;
+      font-weight: $font-weight-light;
+      text-decoration: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
-      @include respond(mobile) {
+      @include respond(mobile-lg) {
         width: 100%;
+        text-align: left;
         padding: 0 1.3rem 0.5rem 1.3rem;
         border-bottom: 2px solid $gray;
       }
     }
 
+    &-original:hover {
+      font-weight: $font-weight-heavy;
+    }
+
     &-shorten {
       width: 30%;
       color: $primary-1;
+      font-weight: $font-weight-light;
       text-decoration: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
-      @include respond(mobile) {
+      @include respond(mobile-lg) {
+        text-align: left;
         width: 87.5%;
       }
+    }
+
+    &-shorten:hover {
+      text-decoration: underline;
     }
 
     & button {
       width: 10%;
 
-      @include respond(mobile) {
+      @include respond(mobile-lg) {
         width: 87.5%;
       }
     }
