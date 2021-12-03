@@ -1,0 +1,54 @@
+@import 'src/styles/main.scss';
+
+$loader-dots-size: 20px;
+
+.loader {
+  height: 0.5em;
+  width: 3.5em;
+  margin: 3rem auto;
+  position: relative;
+
+  font-size: $loader-dots-size;
+
+  &__dot {
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+
+    border-radius: 50%;
+    background: $primary-1;
+    animation-name: loader-wave;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+
+    &--1 {
+      left: 1em;
+      animation-delay: 200ms;
+    }
+
+    &--2 {
+      left: 2em;
+      animation-delay: 400ms;
+    }
+
+    &--3 {
+      left: 3em;
+      animation-delay: 600ms;
+    }
+  }
+}
+
+@keyframes loader-wave {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-0.5em);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
